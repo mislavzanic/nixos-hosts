@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+currdir="$1"
+dir="$2"
+outfile="$3"
+files=($(ls "$dir"))
+
+[ -f "$outfile" ] && rm "$outfile"
+for file in "${files[@]}"; do
+    if [[ -f "$dir/$file" ]]; then
+        helm template "$currdir" -f "$dir/$file" >> "$outfile"
+    fi
+done

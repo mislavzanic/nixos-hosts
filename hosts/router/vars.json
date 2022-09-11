@@ -1,0 +1,117 @@
+{
+    "domain": "lan.mislavzanic.xyz",
+    "hosts": {
+	"infra": [
+	    {
+		"name": "ht-ap",
+		"ipv4": "10.1.1.131",
+		"mac": "8c:19:b5:31:84:2a"
+	    },
+	    {
+		"name": "dlink-extender",
+		"ipv4": "10.1.1.132",
+		"mac": "02:0c:43:91:08:f0"
+	    },
+	    {
+		"name": "router",
+		"ipv4": "10.1.1.1",
+		"mac": ""
+	    }
+	],
+	"servers": [
+	    {
+		"name": "kreso",
+		"ipv4": "10.1.1.67",
+		"mac": "02:0c:43:f1:79:98"
+	    }
+	],
+	"external": [
+	    {
+		"name": "radovan",
+		"ipv4": "91.107.208.213",
+		"mac": ""
+	    },
+	    {
+		"name": "patak",
+		"ipv4": "5.161.195.126",
+		"mac": ""
+	    }
+	]
+    },
+    "records": [
+	{
+	    "name": "homer",
+	    "ipv4": "10.1.1.67"
+	}
+    ],
+    "ports": {
+	"ssh": "22",
+	"dns": "53",
+	"dhcpServer": "67",
+	"dhcpClient": "68",
+	"http": "80",
+	"https": "443",
+	"wireguard": "51820"
+    },
+    "interfaces": {
+	"wan0": {
+	    "name": "wan0",
+	    "mac": "00:0d:b9:5f:58:ec",
+	    "ipv4": "",
+	    "bridge": ""
+	},
+	"ppp0": {
+	    "name": "ppp0",
+	    "mac": "",
+	    "ipv4": "",
+	    "bridge": ""
+	},
+	"eth1": {
+	    "name": "eth1",
+	    "mac": "00:0d:b9:5f:58:ed",
+	    "ipv4": "",
+	    "bridge": "br0"
+	},
+	"eth2": {
+	    "name": "eth2",
+	    "mac": "00:0d:b9:5f:58:ee",
+	    "ipv4": "",
+	    "bridge": "br0"
+	},
+	"br0": {
+	    "name": "br0",
+	    "mac": "00:0d:b9:5f:58:ef",
+	    "ipv4": "10.1.1.1",
+	    "bridge": ""
+	},
+	"wlan0": {
+	    "name": "wlan0",
+	    "mac": "04:f0:21:b2:51:42",
+	    "ipv4": "10.10.1.1",
+	    "bridge": ""
+	},
+	"wg0": {
+	    "name": "wg0",
+	    "mac": "",
+	    "ipv4": "10.100.1.1",
+	    "bridge": ""
+	}
+    },
+    "wireguard": {
+	"client": {
+	    "ipv4": "5.161.195.126",
+	    "port": "51820"
+	},
+	"peers": [
+	    {
+		"PublicKey": "/d8G26pzckYjABWf0H72rL+F9zjfm0DOTcRIBN8ndGs=",
+		"AllowedIPs": [ "10.100.1.20/24" ]
+	    },
+	    {
+		"PublicKey": "VtPFYVtiBUPcvLdbL/Lz03SyGR8wR/QHH8953yxfMxQ=",
+		"AllowedIPs": [ "0.0.0.0/0" ],
+		"Endpoint": "5.161.195.126:51820"
+	    }
+	]
+    }
+}

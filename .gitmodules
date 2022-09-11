@@ -1,0 +1,3 @@
+[submodule "config/xmobar/xmobar"]
+	path = config/xmobar/xmobar
+	url = https://codeberg.org/xmobar/xmobar

@@ -1,0 +1,91 @@
+---
+title: "Home dashboard"
+logo: "assets/icons/png/homer.png"
+
+header: true # Set to false to hide the header
+footer: false
+# Optional: Different hotkey for search, defaults to "/"
+# hotkey:
+#   search: "Shift"
+
+columns: "3" # "auto" or number (must be a factor of 12: 1, 2, 3, 4, 6, 12)
+connectivityCheck: true # whether you want to display a message when the apps are not accessible anymore (VPN disconnected for example).
+                        # You should set it to true when using an authentication proxy, it also reloads the page when a redirection is detected when checking connectivity.
+
+# Optional: Proxy / hosting option
+proxy:
+  useCredentials: false # send cookies & authorization headers when fetching service specific data. Set to `true` if you use an authentication proxy. Can be overrided on service level. 
+
+# Set the default layout and color scheme
+defaults:
+  layout: columns # Either 'columns', or 'list'
+  colorTheme: auto # One of 'auto', 'light', or 'dark'
+
+# Optional theming
+theme: default # 'default' or one of the themes available in 'src/assets/themes'.
+
+# Optional custom stylesheet
+# Will load custom CSS files. Especially useful for custom icon sets.
+# stylesheet:
+#   - "assets/custom.css"
+
+# Here is the exhaustive list of customization parameters
+# However all value are optional and will fallback to default if not set.
+# if you want to change only some of the colors, feel free to remove all unused key.
+colors:
+  light:
+    highlight-primary: "#3367d6"
+    highlight-secondary: "#4285f4"
+    highlight-hover: "#5a95f5"
+    background: "#f5f5f5"
+    card-background: "#ffffff"
+    text: "#363636"
+    text-header: "#424242"
+    text-title: "#303030"
+    text-subtitle: "#424242"
+    card-shadow: rgba(0, 0, 0, 0.1)
+    link: "#3273dc"
+    link-hover: "#363636"
+    background-image: "assets/your/light/bg.png"
+  dark:
+    highlight-primary: "#3367d6"
+    highlight-secondary: "#4285f4"
+    highlight-hover: "#5a95f5"
+    background: "#131313"
+    card-background: "#2b2b2b"
+    text: "#eaeaea"
+    text-header: "#ffffff"
+    text-title: "#fafafa"
+    text-subtitle: "#f5f5f5"
+    card-shadow: rgba(0, 0, 0, 0.4)
+    link: "#3273dc"
+    link-hover: "#ffdd57"
+    background-image: "assets/your/dark/bg.png"
+
+# Optional navbar
+links: [] # Allows for navbar (dark mode, layout, and search) without any links
+
+# Services
+# First level array represents a group.
+# Leave only a "items" key if not using group (group name, icon & tagstyle are optional, section separation will not be displayed).
+services:
+  - name: "Web Links"
+    icon: "fas fa-code-branch"
+    # A path to an image can also be provided. Note that icon take precedence if both icon and logo are set.
+    # logo: "path/to/logo"
+    items:
+    - name: "NixOS Options Search"
+      url: "https://search.nixos.org/options"
+  - name: "Home Lab"
+    items:
+    - name: "Vaultwarden"
+      logo: "assets/icons/png/vaultwarden.png"
+      subtitle: "Password store"
+      tag: "app"
+      keywords: "pass" # optional keyword used for searching purpose
+      url: "https://vault.mislavzanic.xyz"
+        # target: "_blank" # optional html tag target attribute
+    - name: "Deluge"
+      logo: "assets/icons/png/deluge.png"
+      subtitle: "WebUI torrent client"
+      url: "https://deluge.mislavzanic.xyz"

@@ -1,0 +1,52 @@
+#+TITLE: My NixOS hosts
+
+This is a collection of my NixOS machines.
+
+#+NAME: fig:XMonad config
+[[./config/screenshot.png]]
+
+* Configs
+- my XMonad config is here: https://github.com/mislavzanic/xmonad-flake.
+- my Emacs config is here: [[https://github.com/mislavzanic/emacs-flake]]
+- my NixOS modules are here: [[https://github.com/mislavzanic/nix-modules]]
+- my NixOS utils are here: [[https://github.com/mislavzanic/nix-utils]]
+
+* Cleanup (WIP)
+I've decided to go full ballistic and do a major cleanup of this repo.
+
+** Why?
+This repo has become a hot mess of wm configs, host configs, nix scripts, etc. and I've decided to *flakefy it*.
+I also want to config some machines that I won't commit here and I don't want to reference this flake in those configs.
+
+
+* Quickstart
+- after flashing and booting into a nixos image do this
+#+begin_src bash
+  nix-shell -p git vim
+
+  # Set HOST to the desired hostname of this system
+  HOST=...
+  # Set USER to your desired username 
+  USER=...
+
+  git clone https://github.com/mislavzanic/nixos-dotfiles.git /etc/dotfiles
+  cd /etc/dotfiles
+
+  nix run .#disk-partition.regular --experimental-features 'nix-commands flakes'
+
+  mkdir -p hosts/$HOST
+  nixos-generate-config --root /mnt --dir host/$HOST
+  rm hosts/$HOST/configuration.nix
+  cp hosts/milivoj/default.nix hosts/$HOST
+  git add hosts/$HOST
+
+  USER=$USER nixos-install --root /mnt --impure --flake .#$HOST
+  mv /etc/dotfiles /mnt/etc/dotfiles
+#+end_src
+
+* Inspirations (or shameless copies :smile:)
+- [[https://github.com/hlissner/dotfiles][Hlissner's dotfiles]]
+- [[https://github.com/alternateved/nixos-config][alternatived's dotfiles]]
+- [[https://codeberg.org/exorcist/dotfulls][exorcist/dotfulls]]
+- [[https://gitlab.com/slotThe/dotfiles][slotThe's dotfiles]]
+- [[https://github.com/liskin/dotfiles][liskin/dotfiles]]
