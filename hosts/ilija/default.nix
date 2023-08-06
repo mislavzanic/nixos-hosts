@@ -66,7 +66,7 @@ in {
     theme = {
       active = "true";
       wallpapers = {
-        wallpaper = "0003.jpg";
+        wallpaper = "0009.jpg";
       };
     };
   };

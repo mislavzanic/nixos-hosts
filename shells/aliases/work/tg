@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-
-terragrunt run-all "$1" --terragrunt-working-dir="$2"

@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-
-day=$(date -I | awk -F'-' '{print $3}')
-file="d$day.py"
-pypy3 $file
