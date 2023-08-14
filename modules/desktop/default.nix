@@ -42,6 +42,8 @@ in {
       xorg.xmodmap
       lxappearance
       xclip
+      firefox
+      mpv
     ];
 
     fonts = {
@@ -60,7 +62,6 @@ in {
     services.picom = {
       opacityRules = [
         "100:class_g = 'Firefox'"
-        # Art/image programs where we need fidelity
         "100:class_g = 'feh'"
         "100:class_g = 'mpv'"
         "100:class_g = 'zathura'"
@@ -68,7 +69,7 @@ in {
         "100:_NET_WM_STATE@:32a = '_NET_WM_STATE_FULLSCREEN'"
         "100:class_g = 'xmobar'"
         "100:class_g = 'xmonad'"
-        "100:class_g = 'xmonad'"
+        "100:class_g ~= ''"
       ];
     };
   };

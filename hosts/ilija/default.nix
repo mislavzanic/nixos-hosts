@@ -28,14 +28,7 @@ in {
         enable = true;
         picom.enable = true;
       };
-      xmonad.enable = true;
-      services = {
-        autorandr.enable = true;
-      };
-      apps = {
-        zathura.enable = true;
-        spotify.enable = true;
-      };
+      lightdm.enable = true;
       fstree = {
         dev.create = true;
         devops.create = false; 
@@ -59,14 +52,12 @@ in {
       fzf.enable = true;
     };
 
-    editor.vim.enable = true;
-
     services.wireguard.enable = true;
 
     theme = {
       active = "true";
       wallpapers = {
-        wallpaper = "0009.jpg";
+        wallpaper = "0004.jpg";
       };
     };
   };

@@ -7,33 +7,15 @@
 }:
 with lib;
 with lib.my; let
-  cfg = config.modules.desktop.xmonad;
+  cfg = config.modules.desktop.lightdm;
   configDir = config.dotfiles.configDir;
 
 in {
-  options.modules.desktop.xmonad = {
+  options.modules.desktop.lightdm = {
     enable = mkBoolOpt false;
   };
 
   config = mkIf cfg.enable {
-    environment.systemPackages = with pkgs; [
-      networkmanagerapplet
-      maim
-      pamixer
-      pavucontrol
-      pasystray
-      git
-      mpv
-      wget
-      brave
-      firefox
-      gnumake
-      lxappearance
-    ];
-
-    sound.enable = true;
-    hardware.pulseaudio.enable = true;
-
     services = {
       xserver = {
         enable = true;

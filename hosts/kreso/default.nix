@@ -26,7 +26,6 @@ with lib.my;
       gnupg.enable = true;
       fzf.enable = true;
     };
-    editor.vim.enable = true;
   };
 
   services.openssh.enable = true;
