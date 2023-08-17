@@ -69,7 +69,7 @@ in {
         "100:_NET_WM_STATE@:32a = '_NET_WM_STATE_FULLSCREEN'"
         "100:class_g = 'xmobar'"
         "100:class_g = 'xmonad'"
-        "100:class_g ~= ''"
+        "100:!class_g ~= ''"
       ];
     };
   };
