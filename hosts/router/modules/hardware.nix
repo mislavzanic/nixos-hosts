@@ -55,7 +55,7 @@ with config.router.interfaces;
 
   networking = {
     hostName = "router";
-    wireless.athUserRegulatoryDomain = true;
+    # wireless.athUserRegulatoryDomain = true;
     useDHCP = false;
     useNetworkd = true;
     firewall.enable = false;
@@ -64,5 +64,5 @@ with config.router.interfaces;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
-  hardware.wirelessRegulatoryDatabase = true;
+  # hardware.wirelessRegulatoryDatabase = true;
 }

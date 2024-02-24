@@ -72,6 +72,7 @@ let
         49.64.0.0/11,
         218.92.0.0/16,
         222.184.0.0/13,
+        141.98.19.0/24,
       } counter drop comment "malicious subnets"
 
       ${icmpRules}
@@ -86,7 +87,6 @@ let
       tcp dport {
         ${ports.http},
         ${ports.https},
-        ${ports.ssh},
       } counter accept comment "router WAN TCP"
 
       udp dport {

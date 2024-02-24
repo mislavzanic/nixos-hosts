@@ -5,6 +5,26 @@
     nixpkgs.url = "github:NixOS/nixpkgs/master";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/master"; # for packages on the edge
 
+    flake-utils.url = "github:numtide/flake-utils";
+
+    git-ignore-nix.url = "github:hercules-ci/gitignore.nix/master";
+
+    xmonad = {
+      url = "github:xmonad/xmonad";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    xmonad-contrib = {
+      url = "github:xmonad/xmonad-contrib";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    xmobar = {
+      url = "git+https://codeberg.org/xmobar/xmobar";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.git-ignore-nix.follows = "git-ignore-nix";
+    };
+
     home-manager = {
       url = "github:rycee/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -17,6 +37,8 @@
 
     nix-utils = {
       url = "github:mislavzanic/nix-utils";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
     };
 
     emacs-overlay = {

@@ -4,30 +4,25 @@ with lib;
 let
   interface = interfaces.wlan0.name;
 in {
-  services.udev.packages = [ pkgs.crda ];
-  environment.etc."default/crda".text = ''
-    REGDOMAIN=HR
-  '';
+  # services.hostapd = {
+  #   inherit interface;
+  #   enable = false;
+  #   channel = 36;
+  #   hwMode = "g";
+  #   countryCode = "HR";
+  #   wpaPassphrase = builtins.readFile "${config.age.secrets.private-net-pass.path}";
+  #   extraConfig = ''
+  #     ssid=guest
+  #     wmm_enabled=1
+  #     auth_algs=1
+  #     wpa_key_mgmt=WPA-PSK
+  #     wpa_psk_file=/etc/hostapd.psk
+  #     ctrl_interface=/run/hostapd
+  #     ht_capab=[HT40+][SHORT-GI-40][TX-STBC][RX-STBC1][DSSS_CCK-40]
+  #   '';
+  # };
 
-  services.hostapd = {
-    inherit interface;
-    enable = true;
-    channel = 36;
-    hwMode = "a";
-    countryCode = "HR";
-    wpaPassphrase = builtins.readFile "${config.age.secrets.private-net-pass.path}";
-    extraConfig = ''
-      ssid=guest
-      wmm_enabled=1
-      auth_algs=1
-      wpa_key_mgmt=WPA-PSK
-      wpa_psk_file=/etc/hostapd.psk
-      ctrl_interface=/run/hostapd
-      ht_capab=[HT40+][SHORT-GI-40][TX-STBC][RX-STBC1][DSSS_CCK-40]
-    '';
-  };
-
-  systemd.services.hostapd.before = ["network.target" "systemd-networkd.service"];
+  # systemd.services.hostapd.before = ["network.target" "systemd-networkd.service"];
 
   nixpkgs.overlays = [
     (self: super: {

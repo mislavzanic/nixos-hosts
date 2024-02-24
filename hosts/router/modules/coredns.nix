@@ -1,6 +1,9 @@
 { config, lib, pkgs, ... }:
 let
-  blocklist = builtins.fetchurl https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling-porn/hosts;
+  blocklist = builtins.fetchurl {
+    url = "https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling-porn/hosts";
+    sha256 = "sha256:134dc114cpwy88r4k8mxafgkigm91pwg89hhsq4c71jvnci7kryj";
+  };
   domain = config.router.domain;
   hosts = with config.router.hosts; infra ++ servers ++ external;
 in

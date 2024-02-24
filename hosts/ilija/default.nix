@@ -86,11 +86,25 @@ in {
     };
   };
 
+  services.transmission.enable = true;
+  services.transmission.settings = {
+    incomplete-dir = "${config.user.home}/.local/torrents";
+    download-dir = "${config.user.home}/.local/torrents";
+  };
+
+  hardware.pulseaudio.enable = true;
   hardware.bluetooth.enable = true;
   sound.enable = true;
+
   user.packages = with pkgs; [
     brightnessctl
+    spotify
+    zathura
+    autorandr
+    vim
   ];
+
+  environment.systemPackages = with pkgs; [gnumake];
 
   boot.extraModprobeConfig = ''
     options rtw89_pci disable_aspm_l1=y disable_aspm_l1ss=y disable_clkreq=y
@@ -102,5 +116,5 @@ in {
   };
 
   virtualisation.docker.enable = true;
-  users.users.mzanic.extraGroups = ["docker"];
+  users.users.mzanic.extraGroups = ["docker" "transmission"];
 }
